@@ -29,16 +29,16 @@ public class DataBaseHelper extends SQLiteOpenHelper {
 
     }
 
-    public boolean saveStudent(Student student){ //проверку можно делать в сервисе(AsyncTask)
-        if (student.id == 0){
-            return insertStudent(student)>0;
-        }else {
-            return updateStudent(student)>0;
-        }
-    }
+//    public boolean saveStudent(Student student){ //проверку можно делать в сервисе(AsyncTask)
+//        if (student.id == 0){
+//            return insertStudent(student)>0;
+//        }else {
+//            return updateStudent(student)>0;
+//        }
+//    }
 
 
-    private long insertStudent(Student student){//сохранение студента(новый)
+    public long insertStudent(Student student){//сохранение студента(новый)
         SQLiteDatabase db = getWritableDatabase();
         long id=0;
 
@@ -57,7 +57,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
         return id;
     }
 
-    private int updateStudent(Student student){//обновление студента(возвр количество сохр записей)
+    public int updateStudent(Student student){//обновление студента(возвр количество сохр записей)
         SQLiteDatabase db = getWritableDatabase();
         int count = 0;
 

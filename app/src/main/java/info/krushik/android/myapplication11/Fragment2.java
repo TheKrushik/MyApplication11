@@ -1,7 +1,5 @@
 package info.krushik.android.myapplication11;
 
-import android.content.Context;
-import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
@@ -9,7 +7,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 
 public class Fragment2 extends Fragment {
     private static final String EXTRA_STUDENT = "info.krushik.android.myapplication11.STUDENT";
@@ -57,11 +54,11 @@ public class Fragment2 extends Fragment {
                 mStudent.Age = Integer.parseInt(mEditTextAge.getText().toString());
 
                 if (mListener != null) {
-                    mStudent.FirstName = mEditTextFirstName.getText().toString();
-                    mStudent.LastName = mEditTextLastName.getText().toString();
-                    mStudent.Age = Long.parseLong(mEditTextFirstName.getText().toString());
+//                    mStudent.FirstName = mEditTextFirstName.getText().toString();
+//                    mStudent.LastName = mEditTextLastName.getText().toString();
+//                    mStudent.Age = Long.parseLong(mEditTextFirstName.getText().toString());
 
-                    mListener.studentSaved(mStudent);
+                    mListener.onStudentSaved(mStudent);
                 }
             }
         });
@@ -71,11 +68,11 @@ public class Fragment2 extends Fragment {
 
     private StudentListener mListener;
 
-    public  void setStudentListener(StudentListener listener){
+    public  void setOnStudentListener(StudentListener listener){
         mListener = listener;
     }
 
     public interface StudentListener{
-        void studentSaved(Student student);
+        void onStudentSaved(Student student);
     }
 }
