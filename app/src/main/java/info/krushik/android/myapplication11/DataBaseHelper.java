@@ -68,7 +68,7 @@ public class DataBaseHelper extends SQLiteOpenHelper {
             values.put(Student.COLUMN_LAST_NAME, student.LastName);
             values.put(Student.COLUMN_AGE, student.Age);
 
-            count = db.update(Student.TABLE_NAME, values, Student.COLUMN_ID + "+" + student.id, null);
+            count = db.update(Student.TABLE_NAME, values, Student.COLUMN_ID + "=" + student.id, null);
 
         }catch (Exception e){
             e.printStackTrace();
